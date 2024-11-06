@@ -13,8 +13,8 @@
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.42.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
-    <PackageReference Include="System.ComponentModel" />
-    <PackageReference Include="Microsoft.SemanticKernel" />
+    <PackageReference Include="System.ComponentModel" Version " 8.0.0"/>
+    <PackageReference Include="Microsoft.SemanticKernel" Versio "1.27.0"/>
   </ItemGroup>
 
 </Project>
