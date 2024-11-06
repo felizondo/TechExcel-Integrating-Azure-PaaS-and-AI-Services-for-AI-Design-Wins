@@ -14,8 +14,8 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get all hotels from the database.
     /// </summary>
-    [KernelFunction]
-    [Description("Get all hotels.")]
+    ///[KernelFunction]
+    ///[Description("Get all hotels.")]
     public async Task<IEnumerable<Hotel>> GetHotels()
     {
         var sql = "SELECT HotelID, HotelName, City, Country FROM dbo.Hotel";
@@ -44,9 +44,10 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get a specific hotel from the database.
     /// </summary>
-    [KernelFunction]
-    [Description("Get Bookings for Hotel")]
-    public async Task<IEnumerable<Booking>> GetBookingsForHotel([Description("The ID of the hotel")] int hotelId)
+    ///[KernelFunction]
+    ///[Description("Get Bookings for Hotel")]
+    ///public async Task<IEnumerable<Booking>> GetBookingsForHotel([Description("The ID of the hotel")] int hotelId)
+    public async Task<IEnumerable<Booking>> GetBookingsForHotel(int hotelId)
     {
         var sql = "SELECT BookingID, CustomerID, HotelID, StayBeginDate, StayEndDate, NumberOfGuests FROM dbo.Booking WHERE HotelID = @HotelID";
         using var conn = new SqlConnection(
@@ -74,8 +75,8 @@ public class DatabaseService : IDatabaseService
         return bookings;
     }
 
-     [KernelFunction]
-     [Description("Get Bookings Missing Hotel Rooms")]
+     ///[KernelFunction]
+     ///[Description("Get Bookings Missing Hotel Rooms")]
      public async Task<IEnumerable<Booking>> GetBookingsMissingHotelRooms()
      {
          var sql = """
@@ -119,8 +120,8 @@ public class DatabaseService : IDatabaseService
          return bookings;
      }
 
-     [KernelFunction]
-     [Description("Get Bookings with Multiple Hotel Rooms")]
+     ///[KernelFunction]
+     ///[Description("Get Bookings with Multiple Hotel Rooms")]
      public async Task<IEnumerable<Booking>> GetBookingsWithMultipleHotelRooms()
      {
          var sql = """
@@ -167,9 +168,10 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get bookings for a specific hotel that are after a specified date.
     /// </summary>
-    [KernelFunction]
-    [Description("Get Bookings by hotel and Minimum Date")]
-    public async Task<IEnumerable<Booking>> GetBookingsByHotelAndMinimumDate([Description("The ID of the hotel")] int hotelId, [Description("DateTime")] DateTime dt)
+    ///[KernelFunction]
+    ///[Description("Get Bookings by hotel and Minimum Date")]
+    ///public async Task<IEnumerable<Booking>> GetBookingsByHotelAndMinimumDate([Description("The ID of the hotel")] int hotelId, [Description("DateTime")] DateTime dt)
+    public async Task<IEnumerable<Booking>> GetBookingsByHotelAndMinimumDate(int hotelId, DateTime dt)
     {
         var sql = "SELECT BookingID, CustomerID, HotelID, StayBeginDate, StayEndDate, NumberOfGuests FROM dbo.Booking WHERE HotelID = @HotelID AND StayBeginDate >= @StayBeginDate";
         using var conn = new SqlConnection(
