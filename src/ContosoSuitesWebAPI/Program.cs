@@ -10,7 +10,7 @@ using ContosoSuitesWebAPI.Services;
 using Microsoft.Data.SqlClient;
 using Azure.AI.OpenAI;
 using Azure;
-using Microsoft.AspNetCore.Mvc;0
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
